@@ -16,3 +16,14 @@ PrintArray(initialArray);
 Console.WriteLine("Новый массив:");
 string[] finalArray = GetSomeFromArray(initialArray);
 PrintArray(finalArray);
+
+
+//Задаем первоначальный массив строк через ввод вручную
+void FillArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.WriteLine($"Введите {i} элемент масива: ");
+        array[i] = Console.ReadLine();
+    }
+}
