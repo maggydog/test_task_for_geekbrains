@@ -4,9 +4,8 @@
 
 
 //Задаем длину первоначального массива
-Console.WriteLine("Какой длины будет первоначальный массив?");
-int n;
-while (!int.TryParse(Console.ReadLine(), out n)) Console.WriteLine("Ошибка ввода. Введите целое положительное число");
+
+int n = InputNumbers("Какой длины будет первоначальный массив?");
 
 string[] initialArray = new string[n];
 
@@ -23,6 +22,15 @@ else
     PrintArray(finalArray);
 }
 
+//Функция для ввода положительного числа
+
+int InputNumbers(string b)
+{
+    int a;
+    Console.WriteLine(b);
+    while (!int.TryParse(Console.ReadLine(), out a) || a <= 0) Console.WriteLine("Ошибка ввода. Введите положительное число:");
+    return a;
+}
 
 //Задаем первоначальный массив строк через ввод вручную
 void FillArray(string[] array)
