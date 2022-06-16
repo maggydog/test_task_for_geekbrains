@@ -27,3 +27,13 @@ void FillArray(string[] array)
         array[i] = Console.ReadLine();
     }
 }
+
+// Напечатаем массив
+
+void PrintArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.WriteLine($"№{i}: {array[i]}");
+    }
+}
