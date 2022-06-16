@@ -4,15 +4,14 @@
 
 
 //Задаем длину первоначального массива
-
+Console.WriteLine();
 int n = InputNumbers("Какой длины будет первоначальный массив?");
 
 string[] initialArray = new string[n];
-
 FillArray(initialArray);
-Console.WriteLine();
 Console.WriteLine("Первоначальный массив:");
 Console.WriteLine(OtherWayToPrintArray(initialArray));
+
 Console.WriteLine();
 string[] finalArray = GetSomeFromArray(initialArray);
 if (finalArray.Length == 0) Console.WriteLine("В певроначальном массиве нет элементов,длина которых меньше либо равна 3");
@@ -21,6 +20,7 @@ else
     Console.WriteLine("Новый массив:");
     PrintArray(finalArray);
 }
+Console.WriteLine();
 
 //Функция для ввода положительного числа
 
@@ -42,7 +42,7 @@ void FillArray(string[] array)
     }
 }
 
-// Напечатаем массив
+// Печатаем массив
 
 void PrintArray(string[] array)
 {
@@ -60,16 +60,16 @@ string OtherWayToPrintArray(string[] array)
     result = "[ ";
     for (int i = 0; i < array.Length; i++)
     {
-        if (i == array.Length - 1) result += $"{array[i],5}";
+        if (i == array.Length - 1) result += $"{array[i]}";
         else result += $"{array[i]}, ";
     }
     result += " ]";
     return result;
 }
 
-// Вытащим из этого массива другой, с длиной строк <=3. 
-// Тут сначала вытаскиваем длинну будущего массива, 
-// потом инициализируем его и заполняем элементами <=3.
+// Вытащим элементы длиной <=3 из первоначального массива и поместим их в другой, новый. 
+// Задачи: определяем длину нового массива, 
+// инициализируем его и заполняем элементами длиной <=3, не учитывая при этом пустые строки.
 
 int HowLongNewArray(string[] oldArray)
 {
@@ -86,11 +86,11 @@ string[] GetSomeFromArray(string[] oldArray)
     string[] newArray = new string[HowLongNewArray(oldArray)];
     int j = 0;
 
-    for (int i = 0; i < oldArray.Length; i++)
+    for (int k = 0; k < oldArray.Length; k++)
     {
-        if (oldArray[i].Length <= 3 && !string.IsNullOrEmpty(oldArray[i]))
+        if (oldArray[k].Length <= 3 && !string.IsNullOrEmpty(oldArray[k]))
         {
-            newArray[j] = oldArray[i];
+            newArray[j] = oldArray[k];
             j++;
         }
     }
