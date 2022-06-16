@@ -13,10 +13,12 @@ Console.WriteLine("Первоначальный массив:");
 Console.WriteLine(OtherWayToPrintArray(initialArray));
 
 Console.WriteLine();
-string[] finalArray = GetSomeFromArray(initialArray);
-if (finalArray.Length == 0) Console.WriteLine("В певроначальном массиве нет элементов,длина которых меньше либо равна 3");
+int m = InputNumbers("Максимальная длина строк, из которых будем собирать новый массив: ");
+string[] finalArray = GetSomeFromArray(initialArray, m);
+if (finalArray.Length == 0) Console.WriteLine($"В певроначальном массиве нет элементов,длина которых меньше либо равна {m}");
 else
 {
+    Console.WriteLine();
     Console.WriteLine("Новый массив:");
     PrintArray(finalArray);
 }
@@ -71,24 +73,24 @@ string OtherWayToPrintArray(string[] array)
 // Задачи: определяем длину нового массива, 
 // инициализируем его и заполняем элементами длиной <=3, не учитывая при этом пустые строки.
 
-int HowLongNewArray(string[] oldArray)
+int HowLongNewArray(string[] oldArray, int maxLong)
 {
     int count = 0;
     for (int i = 0; i < oldArray.Length; i++)
     {
-        if (oldArray[i].Length <= 3 && !string.IsNullOrEmpty(oldArray[i])) count++;
+        if (oldArray[i].Length <= maxLong && !string.IsNullOrEmpty(oldArray[i])) count++;
     }
     return count;
 }
 
-string[] GetSomeFromArray(string[] oldArray)
+string[] GetSomeFromArray(string[] oldArray, int maxLong)
 {
-    string[] newArray = new string[HowLongNewArray(oldArray)];
+    string[] newArray = new string[HowLongNewArray(oldArray, maxLong)];
     int j = 0;
 
     for (int k = 0; k < oldArray.Length; k++)
     {
-        if (oldArray[k].Length <= 3 && !string.IsNullOrEmpty(oldArray[k]))
+        if (oldArray[k].Length <= maxLong && !string.IsNullOrEmpty(oldArray[k]))
         {
             newArray[j] = oldArray[k];
             j++;
