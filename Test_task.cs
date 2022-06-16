@@ -11,7 +11,7 @@ string[] initialArray = new string[n];
 
 FillArray(initialArray);
 Console.WriteLine("Первоначальный массив:");
-Console.WriteLine(TruePrintArray(initialArray));
+Console.WriteLine(OtherWayToPrintArray(initialArray));
 
 Console.WriteLine("Новый массив:");
 string[] finalArray = GetSomeFromArray(initialArray);
@@ -40,7 +40,7 @@ void PrintArray(string[] array)
 
 // Еще один метод печати
 
-string TruePrintArray(string[] array)
+string OtherWayToPrintArray(string[] array)
 {
     string result = string.Empty;
     result = "[ ";
@@ -56,14 +56,19 @@ string TruePrintArray(string[] array)
 // Тут сначала вытаскиваем длинну будущего массива, 
 // потом инициализируем его и заполняем элементами <=3.
 
-string[] GetSomeFromArray(string[] oldArray)
+int HowLongNewArray (string [] oldArray)
 {
     int count = 0;
     for (int i = 0; i < oldArray.Length; i++)
     {
         if (oldArray[i].Length <= 3) count++;
     }
-    string[] newArray = new string[count];
+    return count;
+}
+
+string[] GetSomeFromArray(string[] oldArray)
+{
+    string[] newArray = new string[HowLongNewArray(oldArray)];
     int j = 0;
 
     for (int i = 0; i < oldArray.Length; i++)
