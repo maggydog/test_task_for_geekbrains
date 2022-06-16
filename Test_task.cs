@@ -13,6 +13,7 @@ Console.WriteLine("Первоначальный массив:");
 Console.WriteLine(OtherWayToPrintArray(initialArray));
 
 Console.WriteLine();
+
 int m = InputNumbers("Максимальная длина строк, из которых будем собирать новый массив: ");
 string[] finalArray = GetSomeFromArray(initialArray, m);
 if (finalArray.Length == 0) Console.WriteLine($"В певроначальном массиве нет элементов,длина которых меньше либо равна {m}");
